@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import logo from './logo.svg';
 import {IntlProvider} from 'react-intl';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import { FormattedMessage } from "react-intl";

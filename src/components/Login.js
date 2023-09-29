@@ -1,9 +1,9 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { Button, Col, Form, Row } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
+import bookLogo from '../bookLogo.png';
 import "./styles/Login.css";
-import logo from '../logo.svg';
 
 function Login() {
     const [formValues, setFormValues] = useState({email:"", password:""})
@@ -32,7 +32,7 @@ function Login() {
         // Check if the password is not null (empty or undefined)
         setValidationState((prevState) => ({
             ...prevState,
-            password: password_e !== null && password_e !== undefined && password_e.length > 0 && password_e !== placeholder,
+            password: password_e !== null && password_e !== undefined && password_e.length > 5 && password_e !== placeholder,
         }));
 
         settouched((prevState) => ({ ...prevState, password: true }));
@@ -44,50 +44,55 @@ function Login() {
           // Perform form submission
           alert(JSON.stringify(formValues));
           navigate('/');
-
-
         } else {
           alert('Correo o contraseña incorrectos');
         }
     };
 
     return (
-        <Container>
-            <Row>
-                <Col className="col bg">
-                <div className="text-end">
-                        <img src={logo} alt="Logo"/>
-                    </div>
-                </Col>
-                <Col  className="col">
-                    
+        <div className="loginB">
+        <div className="row g-0 justify-content-center aling-items-center login">
 
-                    <h2 className="fw-bold text-center pt-5 mb-5 py-5"> Bienvenido</h2>
-                    
-                    <Form >
-                    
-                    <Row>
-                        <Form.Label className="formLabel">Correo Electrónico </Form.Label>
-                        <Form.Control className="custom-input" type="email" placeholder="Correo electrónico" style={{ color: 'white' }} onChange={handleEmailChange} isInvalid={touched.email && !validationState.email}/>
-                    </Row>
-                    <br />
-                    <Row>
-                        <Form.Label className="formLabel">Contraseña </Form.Label>
-                        <Form.Control className="custom-input" type="password" placeholder="Contraseña" style={{ color: 'white' }} onChange={handlePasswordChange} isInvalid={touched.password && !validationState.password}/>
-                    </Row>
-                    <br />
-                    
-                    <br />
-                    <Row>
-                        <Col> 
-                        <Button className="custom-button" size="lg" onClick={clickSubmit} disabled={!(validationState.email && validationState.password)}>Iniciar sesion</Button>{' '}
-                        </Col>
-                    </Row>              
-                    </Form>
-                </Col>
+        <div className="col-10 row g-0">
+
+        </div>
+
+        <div className="col-4 aa">
+            <img src={bookLogo} alt="Books logo" className="img-fluid"/>
+
+        </div>       
+        
+        <Form className="col-4 py-4 px-5 mt-5 forms">
+            <h2 className="fw-bold text-center"> Tu libreria aliada</h2>       
+            <br />
+            <Row>
+                 <Form.Label className="formLabel">Users name or Email </Form.Label>
+                     <Form.Control className="form-control" type="email" placeholder="Correo electrónico"  onChange={handleEmailChange} isInvalid={touched.email && !validationState.email}/>
             </Row>
-        </Container>
+                     <br />
+            <Row>
+                         <Form.Label className="formLabel">Contraseña </Form.Label>
+                         <Form.Control className="form-control" type="password" placeholder="Contraseña"  onChange={handlePasswordChange} isInvalid={touched.password && !validationState.password}/>
+            </Row>
+            <Row>
+                    <Col className="forgot">
+                        <Form.Label className="formLabel">Forgot your password?</Form.Label>
+                    </Col>
+            </Row>
+            <br />
+            <Row>
+                    <Col> 
+                    <Button className="custom-button" size="lg" onClick={clickSubmit} disabled={!(validationState.email && validationState.password)}>Iniciar sesion</Button>{' '}
+                    </Col>
+            </Row>              
+        </Form>  
+
+        </div>
+        </div>
+
+
     );
+
 }
 
 export default Login;
