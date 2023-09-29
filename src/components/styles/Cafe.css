@@ -1,6 +1,19 @@
 .title{
     font-size: 18px;
     font-weight: 900;
-    font-family: Inter  ;
+
 }
 
+.cards{
+    font-family: 'Inter', sans-serif;
+}
+
+.text{
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.notas{
+    font-size: 18px;
+    font-weight: 300;
+}

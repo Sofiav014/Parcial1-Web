@@ -95,13 +95,13 @@ function CafeList() {
         <Row>
         <Col md={7}> 
             <table className="table">
-            <thead className="thead">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Tipo</th>
-                <th scope="col">Región</th>
-            </tr>
+            <thead className="thead" >
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Región</th>
+                </tr>
             </thead>
             <tbody>
             {cafes.map((cafe) => (

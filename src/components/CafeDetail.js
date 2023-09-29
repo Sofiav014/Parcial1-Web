@@ -12,14 +12,14 @@ function CafeDetail(props) {
     return (
         <>
 
-            <Card border="dark" style={{ width: '95%', backgroundColor:"rgba(224, 187, 187, 0.2)" }}>
+            <Card border="dark" style={{ width: '95%', backgroundColor:"rgba(224, 187, 187, 0.2)" }} className='cards'>
             <Card.Body>
                 <Card.Title className='title'>{cafe.nombre}</Card.Title>
-                <Card.Text>{cafe.fecha_cultivo}</Card.Text>
+                <Card.Text className='text'>{cafe.fecha_cultivo}</Card.Text>
                 <Card.Img  src={cafe.imagen} />
-                <Card.Text>Notas</Card.Text>
-                <Card.Text>{cafe.notas}</Card.Text>
-                <Card.Title>Cultivado a una altura de {cafe.altura} msnm</Card.Title>
+                <Card.Text className='notas'>Notas</Card.Text>
+                <Card.Text className='notas'>{cafe.notas}</Card.Text>
+                <Card.Title className='title'>Cultivado a una altura de {cafe.altura} msnm</Card.Title>
                 
             </Card.Body>
             </Card>
