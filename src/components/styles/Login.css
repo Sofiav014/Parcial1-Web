@@ -1,18 +1,43 @@
+Button{
+    border-color: white !important;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 0px 5px;
+    cursor: pointer;
+  }
 
+  .login-button{
+    background-color: #4CAF50 !important;
+    border-radius: 5px;
+    border: 1px solid #4CAF50;
+  }
 
-.aa{
-    background-color: #b2cec2;
-}
+  .cancel-button{
+    background-color: #f44336 !important;
+    border-radius: 5px;
+    border: 1px solid #f44336;
+  }
 
-.login{
-    margin-top: 10%;
-}
-
-.formLabel{
+  .loginText{
     text-align: left;
-}
+  }
 
-.forgot{
-    text-align: right;
-}
+  .containerr{
+    width: 70%;
+    padding: 16px;
+    background-color: rgba(224, 187, 187, 0.2);
+    border-radius: 5px;
+    border: 1px solid #f44336;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+  }
 
+  .formLabel{
+    text-align: left;
+    font-weight: bold;
+  }

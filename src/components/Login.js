@@ -1,28 +1,24 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
-import { Button, Col, Form, Row } from "react-bootstrap";
+import { Button, Col, Form, Row, ButtonGroup, Container} from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
-import bookLogo from '../bookLogo.png';
 import "./styles/Login.css";
 
 function Login() {
-    const [formValues, setFormValues] = useState({email:"", password:""})
-    const [validationState, setValidationState] = useState({email:false, password:false})
-    const [touched, settouched] = useState({email:false, password:false})
+    const [formValues, setFormValues] = useState({user:"", password:""})
+    const [validationState, setValidationState] = useState({user:false, password:false})
+    const [touched, settouched] = useState({user:false, password:false})
     const navigate = useNavigate();
 
-    const handleEmailChange = ((e) => {
+    const handleUserChange = ((e) => {
         const placeholder = e.target.placeholder;
-        const email_e = e.target.value;
-        setFormValues({ ...formValues, email: email_e });
+        const user_e = e.target.value;
+        setFormValues({ ...formValues, user: user_e });
 
-        const REGEX = /^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/
-        // Check if the email is not null (empty or undefined)
-        const valid = REGEX.test(formValues.email)
     
-        setValidationState((prevState) => ({ ...prevState, email: valid && email_e !== placeholder }));
+        setValidationState((prevState) => ({ ...prevState, user: user_e !== placeholder && user_e !== null && user_e !== undefined && user_e.length > 1}));
 
-        settouched((prevState) => ({ ...prevState, email: true }));
+        settouched((prevState) => ({ ...prevState, user: true }));
     });
 
     const handlePasswordChange = ((e) => {
@@ -39,54 +35,60 @@ function Login() {
     });
 
     const clickSubmit = () => {
-        // Check if both email and password are not null
-        if (validationState.email && validationState.password ) {
+        // Check if both user and password are not null
+        if (validationState.user && validationState.password ) {
           // Perform form submission
           alert(JSON.stringify(formValues));
-          navigate('/books');
+          navigate('/cafeList');
         } else {
           alert('Correo o contraseña incorrectos');
         }
     };
 
+    const handleCancel = () => {
+        setFormValues({user:"", password:""})
+      };
+
     return (
+        
         <div className="loginB">
-        <div className="row g-0 justify-content-center aling-items-center login">
+            <br />
+        <div className="row g-0 justify-content-center  login">
 
         <div className="col-10 row g-0">
-
+            <h4 className="loginText"> Inicio de sesión</h4>      
         </div>
+        <Container className="containerr">
+            <Row className="justify-content-center">
 
-        <div className="col-4 aa">
-            <img src={bookLogo} alt="Books logo" className="img-fluid"/>
-
-        </div>       
-        
+            
         <Form className="col-4 py-4 px-5 mt-5 forms">
-            <h2 className="fw-bold text-center"> Tu libreria aliada</h2>       
-            <br />
-            <Row>
-                 <Form.Label className="formLabel">Users name or Email </Form.Label>
-                     <Form.Control className="form-control" type="email" placeholder="Correo electrónico"  onChange={handleEmailChange} isInvalid={touched.email && !validationState.email}/>
-            </Row>
-                     <br />
-            <Row>
-                         <Form.Label className="formLabel">Contraseña </Form.Label>
-                         <Form.Control className="form-control" type="password" placeholder="Contraseña"  onChange={handlePasswordChange} isInvalid={touched.password && !validationState.password}/>
-            </Row>
-            <Row>
-                    <Col className="forgot">
-                        <Form.Label className="formLabel">Forgot your password?</Form.Label>
-                    </Col>
-            </Row>
-            <br />
-            <Row>
-                    <Col> 
-                    <Button className="custom-button" size="lg" onClick={clickSubmit} disabled={!(validationState.email && validationState.password)}>Iniciar sesion</Button>{' '}
-                    </Col>
-            </Row>              
-        </Form>  
+             
+             <br />
+             <Row>
+                  <Form.Label className="formLabel">Nombre de usuario </Form.Label>
+                      <Form.Control className="form-control" type="user" placeholder="Correo electrónico"  onChange={handleUserChange} isInvalid={touched.user && !validationState.user}/>
+             </Row>
+                      <br />
+             <Row>
+                          <Form.Label className="formLabel">Contraseña </Form.Label>
+                          <Form.Control className="form-control" type="password" placeholder="Contraseña"  onChange={handlePasswordChange} isInvalid={touched.password && !validationState.password}/>
+             </Row>
+             <br />
+             <Row>
+                     <Col> 
+                     <ButtonGroup>
+                     <Button className="login-button" size="lg" onClick={clickSubmit} disabled={!(validationState.user && validationState.password)}>Ingresar</Button>{' '}
+                     <Button className="cancel-button" size="lg" onClick={handleCancel}>Cancelar</Button>{' '}
+                     </ButtonGroup>
+                     </Col>
+             </Row>              
+         </Form>  
+         </Row>
+ 
+        </Container>
 
+        
         </div>
         </div>
 
