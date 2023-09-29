@@ -1,24 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import logo from './logo.svg';
+import {IntlProvider} from 'react-intl';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+// import { FormattedMessage } from "react-intl";
+import localeEnMessages from "./locale/en";
+import localeEsMessages from "./locale/es";
+import Login from "./components/Login";
+
+function idiomaNavegador() {
+  const idiomasDisponibles = ['en', 'es', "es-ES"];
+  const idiomaNavegador = navigator.language || navigator.userLanguage;
+
+  if (idiomasDisponibles.includes(idiomaNavegador)) {
+    return idiomaNavegador;
+  }
+  return 'en';
+}
 
 function App() {
+
+  const language = idiomaNavegador();
+  const message = language.includes("es") ? localeEsMessages : localeEnMessages;
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <IntlProvider locale={language} messages={message}>
+        <div>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Login />} />
+              {/* <Route path="/about" element={<App />} /> */}
+            </Routes>
+          </BrowserRouter>
+        </div>
+      </IntlProvider>
     </div>
   );
 }
