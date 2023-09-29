@@ -43,7 +43,7 @@ function Login() {
         if (validationState.email && validationState.password ) {
           // Perform form submission
           alert(JSON.stringify(formValues));
-          navigate('/');
+          navigate('/books');
         } else {
           alert('Correo o contraseña incorrectos');
         }

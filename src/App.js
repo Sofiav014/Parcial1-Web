@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import localeEnMessages from "./locale/en";
 import localeEsMessages from "./locale/es";
 import Login from "./components/Login";
+import BookList from "./components/BookList";
 
 function idiomaNavegador() {
   const idiomasDisponibles = ['en', 'es', "es-ES"];
@@ -30,6 +31,8 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Login />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/books" element={<BookList />} />
               {/* <Route path="/about" element={<App />} /> */}
             </Routes>
           </BrowserRouter>
