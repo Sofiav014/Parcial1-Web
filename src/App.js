@@ -11,6 +11,7 @@ import Header from './components/Header';
 
 import CafeList from './components/CafeList';
 
+import { FormattedMessage } from "react-intl";
 
 
 function idiomaNavegador() {
@@ -43,9 +44,8 @@ function App() {
           <br />
           <br />
           <footer className="">
-            Contact us: +57 3102105253 - info@elaromamagico.com - @elaromamagico
+            <FormattedMessage id="contact"/>: +57 3102105253 - info@elaromamagico.com - @elaromamagico
           </footer>
-
         </div>
       </IntlProvider>
     </div>

@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-// import CafeDetail from "./CafeDetail";
 import "./styles/CafeList.css";
 import { Col, Row } from 'react-bootstrap';
 import CafeDetail from "./CafeDetail";
+import { FormattedMessage } from "react-intl";
 
 
 function CafeList() {
@@ -37,9 +37,9 @@ function CafeList() {
             <thead className='table-dark' >
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Tipo</th>
-                    <th scope="col">Región</th>
+                    <th scope="col"><FormattedMessage id="name"/></th>
+                    <th scope="col"><FormattedMessage id="type"/></th>
+                    <th scope="col"><FormattedMessage id="region"/></th>
                 </tr>
             </thead>
             <tbody>

@@ -1,3 +1,15 @@
 {
-    
+    "user": "Username",
+    "password": "Password",
+    "login": "Login",
+    "cancel": "Cancel",
+    "loginButton": "Login",
+    "brand": "The magical aroma",
+    "name": "Name",
+    "type": "Type",
+    "region": "Region",
+    "notes": "Notes",
+    "cultivated": "Cultivated at an altitude of",
+    "msnm": "masl",
+    "contact": "Contact us"
 }

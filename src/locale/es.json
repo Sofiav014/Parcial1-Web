@@ -1,3 +1,16 @@
 {
-    
+    "user": "Nombre de usuario",
+    "password": "Constraseña",
+    "login": "Inicio de sesión",
+    "cancel": "Cancelar",
+    "loginButton": "Ingresar",
+    "brand": "El aroma mágico",
+    "name": "Nombre",
+    "type": "Tipo",
+    "region": "Región",
+    "notes": "Notas",
+    "cultivated": "Cultivado a una altura de",
+    "msnm": "msnm",
+    "contact": "Contáctanos"
+
 }

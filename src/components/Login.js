@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Button, ButtonGroup, Col, Container, Form, Row } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
 import "./styles/Login.css";
+import { FormattedMessage } from "react-intl";
 
 function Login() {
     const [formValues, setFormValues] = useState({user:"", password:""})
@@ -67,7 +68,7 @@ function Login() {
         
         <Container className="loginB">
             
-            <h4 className="loginText"> Inicio de sesión</h4>      
+            <h4 className="loginText"><FormattedMessage id="login"/></h4>      
                 <Container className="containerr">
                     <Row className="justify-content-center">
 
@@ -75,18 +76,18 @@ function Login() {
                 <Form className="py-4 px-5 mt-5 forms">
                     
                     <Row>
-                        <Form.Label className="formLabel">Nombre de usuario </Form.Label>
-                            <Form.Control className="form-control" type="text"   onChange={handleUserChange} isInvalid={touched.user && !validationState.user}/>
+                        <Form.Label className="formLabel"><FormattedMessage id="user"/></Form.Label>
+                        <Form.Control className="form-control" type="text"   onChange={handleUserChange} isInvalid={touched.user && !validationState.user}/>
                     </Row>
                     <Row>
-                                <Form.Label className="formLabel">Contraseña </Form.Label>
+                                <Form.Label className="formLabel"><FormattedMessage id="password"/> </Form.Label>
                                 <Form.Control className="form-control" type="password"   onChange={handlePasswordChange} isInvalid={touched.password && !validationState.password}/>
                     </Row>
                     <Row>
                             <Col> 
                             <ButtonGroup>
-                            <Button variant="success" size="lg" onClick={clickSubmit}>Ingresar</Button>
-                            <Button variant="danger" size="lg" onClick={handleCancel}>Cancelar</Button>
+                            <Button variant="success" size="lg" onClick={clickSubmit}><FormattedMessage id="loginButton"/></Button>
+                            <Button variant="danger" size="lg" onClick={handleCancel}><FormattedMessage id="cancel"/></Button>
                             </ButtonGroup>
                             </Col>
                     </Row>              
