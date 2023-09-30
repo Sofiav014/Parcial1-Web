@@ -1,13 +1,17 @@
-import {Navbar } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import './styles/Header.css';
+import hero from '../hero.png';
 
 function Header() {
     return (
-        <>
-          <Navbar className="bg-body-tertiary">
-              <Navbar.Brand className='brand' >El aroma magico</Navbar.Brand>
-          </Navbar>
-        </>
+        <Container fluid className="container-reset">
+          <h1 className='brand'>El aroma magico</h1>
+          <hr></hr>
+            <Row >
+                  <img src={hero} alt="hro" style={{height:"323px", width:"100%"}}/>
+            </Row>
+            <hr></hr>
+          </Container>
     );
 }
 

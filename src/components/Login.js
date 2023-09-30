@@ -67,12 +67,12 @@ function Login() {
              <br />
              <Row>
                   <Form.Label className="formLabel">Nombre de usuario </Form.Label>
-                      <Form.Control className="form-control" type="user" placeholder="Correo electrónico"  onChange={handleUserChange} isInvalid={touched.user && !validationState.user}/>
+                      <Form.Control className="form-control" type="user"   onChange={handleUserChange} isInvalid={touched.user && !validationState.user}/>
              </Row>
                       <br />
              <Row>
                           <Form.Label className="formLabel">Contraseña </Form.Label>
-                          <Form.Control className="form-control" type="password" placeholder="Contraseña"  onChange={handlePasswordChange} isInvalid={touched.password && !validationState.password}/>
+                          <Form.Control className="form-control" type="password"   onChange={handlePasswordChange} isInvalid={touched.password && !validationState.password}/>
              </Row>
              <br />
              <Row>

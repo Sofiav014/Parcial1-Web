@@ -1,4 +1,8 @@
 .brand {
     font-family: 'Indie Flower', cursive;
-    
+    text-align: left;
   }
+
+*{
+  margin: 10px;
+}
