@@ -32,27 +32,27 @@ function CafeList() {
         <>
         <br />
         <Row>
-        <Col> 
+        <Col className="table"> 
             <table className="table table-hover">
-            <thead className='table-dark' >
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col"><FormattedMessage id="name"/></th>
-                    <th scope="col"><FormattedMessage id="type"/></th>
-                    <th scope="col"><FormattedMessage id="region"/></th>
-                </tr>
-            </thead>
-            <tbody>
-            {cafes.map((cafe) => (
-                <tr key={cafe.id} onClick={() => handleCardClick(cafe)}>
-                <th scope="row">{cafe.id}</th>
-                <td>{cafe.nombre}</td>
-                <td>{cafe.tipo}</td>
-                <td>{cafe.region}</td>
-                </tr>
-            ))}
-            </tbody>
-      </table>
+                <thead className='table-dark' >
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col"><FormattedMessage id="name"/></th>
+                        <th scope="col"><FormattedMessage id="type"/></th>
+                        <th scope="col"><FormattedMessage id="region"/></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {cafes.map((cafe) => (
+                    <tr key={cafe.id} onClick={() => handleCardClick(cafe)}>
+                    <th scope="row">{cafe.id}</th>
+                    <td>{cafe.nombre}</td>
+                    <td>{cafe.tipo}</td>
+                    <td>{cafe.region}</td>
+                    </tr>
+                ))}
+                </tbody>
+            </table>
         </Col> 
         <Col> 
             {selectedCafe && (
