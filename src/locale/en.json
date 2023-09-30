@@ -11,5 +11,6 @@
     "notes": "Notes",
     "cultivated": "Cultivated at an altitude of",
     "msnm": "masl",
-    "contact": "Contact us"
+    "contact": "Contact us",
+    "error": "Authentication Error. Check your credentials"
 }

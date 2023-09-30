@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
-import { Button, ButtonGroup, Col, Container, Form, Row } from "react-bootstrap";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
 import "./styles/Login.css";
 import { FormattedMessage } from "react-intl";
@@ -9,9 +9,11 @@ function Login() {
     const [formValues, setFormValues] = useState({user:"", password:""})
     const [validationState, setValidationState] = useState({user:false, password:false})
     const [touched, settouched] = useState({user:false, password:false})
+    const [error, setError] = useState(false);
     const navigate = useNavigate();
 
     const handleUserChange = ((e) => {
+        setError(false);
         const placeholder = e.target.placeholder;
         const user_e = e.target.value;
         setFormValues({ ...formValues, user: user_e });
@@ -23,6 +25,7 @@ function Login() {
     });
 
     const handlePasswordChange = ((e) => {
+        setError(false);
         const placeholder = e.target.placeholder;
         const password_e = e.target.value;
         setFormValues({ ...formValues, password: password_e });
@@ -49,10 +52,10 @@ function Login() {
         fetch(URL, requestOptions).then((response) => response.json()).then((data) => {
             console.log(data);
             if (data.status === 'success') {
-                alert('Datos correctos');
+                setError(false);
                 navigate('/cafeList');
             } else {
-                alert('Datos incorrectos');
+                setError(true);
             }
         }).catch((error) => {
             console.error('Error fetching data:', error);
@@ -62,10 +65,11 @@ function Login() {
 
     const handleCancel = () => {
         setFormValues({user:"", password:""})
-      };
+        setError(false);
+        navigate('/');
+    };
 
     return (
-        
         <Container className="loginB">
             
             <h4 className="loginText"><FormattedMessage id="login"/></h4>      
@@ -83,15 +87,21 @@ function Login() {
                                 <Form.Label className="formLabel"><FormattedMessage id="password"/> </Form.Label>
                                 <Form.Control className="form-control" type="password"   onChange={handlePasswordChange} isInvalid={touched.password && !validationState.password}/>
                     </Row>
+                    <br />
                     <Row>
                             <Col> 
-                            <ButtonGroup>
-                            <Button variant="success" size="lg" onClick={clickSubmit}><FormattedMessage id="loginButton"/></Button>
-                            <Button variant="danger" size="lg" onClick={handleCancel}><FormattedMessage id="cancel"/></Button>
-                            </ButtonGroup>
+                            <Button className="button ingresar" size="lg" onClick={clickSubmit}><FormattedMessage id="loginButton"/></Button>
                             </Col>
+                            <Col> 
+                            <Button className="button cancel" size="lg" onClick={() => handleCancel()}><FormattedMessage id="cancel"/></Button>
+                            </Col>
+
+                            {!validationState.valid && error && <p className="error">Error de autenticación. Revise sus credenciales</p>}
                     </Row>              
                 </Form>  
+                </Row>
+                <Row>
+                    
                 </Row>
                 </Container>
 

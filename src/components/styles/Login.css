@@ -1,13 +1,15 @@
-Button{
-    border-color: white !important;
-    color: white;
+  Button{
+    border-color: transparent !important;
+    color: rgb(0, 0, 0) !important;
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 15px;
+    font-size: 20px !important;
+    font-weight: 700 !important;
     margin: 0px 5px;
     cursor: pointer;
+    width: 100%;
   }
 
   .login-button{
@@ -47,3 +49,46 @@ Button{
     font-weight: 700;
     font-size: 20px;
   }
+
+  .error{
+    color: rgba(205, 50, 50, 1);
+    font-size: 20px;
+    font-weight: 700;
+    text-align: left;
+  }
+
+  .form-control{
+    height: 40px;
+    border-radius: 0px;
+    border: 1px solid #000000;
+    padding-left: 5px;
+    background-color: rgba(217, 217, 217, 1);
+
+  }
+
+  .form-control:focus{
+    border: 1px solid #000000;
+    box-shadow: none;
+    background-color: rgba(217, 217, 217, 1);
+  }
+
+  .cancel{
+    background-color: rgba(231, 93, 93, 1);
+  }
+
+  .cancel:hover{
+    background-color: rgba(231, 93, 93, 0.8);
+  }
+
+  .ingresar{
+    background-color: rgba(143, 169, 143, 1);
+  }
+
+  .ingresar:hover{
+    background-color: rgba(143, 169, 143, 0.8);
+  }
+
+  
+
+  
+

@@ -11,6 +11,7 @@
     "notes": "Notas",
     "cultivated": "Cultivado a una altura de",
     "msnm": "msnm",
-    "contact": "Contáctanos"
+    "contact": "Contáctanos",
+    "error": "Error de autenticación. Revise sus credenciales"
 
 }

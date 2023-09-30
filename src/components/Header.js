@@ -9,7 +9,7 @@ function Header() {
           <h1 className='brand'><FormattedMessage id="brand"/></h1>
           <hr></hr>
             <Row >
-                  <img src={hero} alt="hro" style={{height:"323px", width:"100%"}}/>
+                  <img src={hero} alt="hro" style={{height:"338px", width:"100%"}}/>
             </Row>
             <hr></hr>
           </Container>
